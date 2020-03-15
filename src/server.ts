@@ -20,19 +20,25 @@ const server = restify.createServer();
 server.use(bodyParser());
 
 server.post('/save/:user', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+  const body = JSON.parse(req.body);
+  
   const saveRequest = await api.post(`save/${req.params.user}`, {
-    tp: req.body.tp,
+    tp: body.tp,
   });
 
-  res.send(saveRequest);
+  console.log(saveRequest.data);
+
+  res.send(saveRequest.data);
 });
 
 server.post('/verify/:user', async (req: restify.Request, res: restify.Response, next: restify.Next) => {
+  const body = JSON.parse(req.body);
+  
   const verifyRequest = await api.post(`verify/${req.params.user}`, {
-    tp: req.body.tp,
+    tp: body.tp,
   });
 
-  res.send(verifyRequest);
+  // res.send(verifyRequest);
 });
 
 server.listen(8080, () => {
