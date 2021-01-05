@@ -15,7 +15,7 @@
     "lint": "tsc --noEmit && eslint \"**/*.{js,ts}\" --quiet --fix"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "axios-endpoints": "^0.2.3",
     "dotenv": "^8.2.0",
     "restify": "^8.4.0",
